@@ -77,7 +77,7 @@
       node.each(gravity(dampenedAlpha))
         .each(collide(jitter))
         .attr("transform", function(d) {
-          return "translate(" + d.x + "," + d.y + ")";
+          return "translate(#{d.x},#{d.y})";
       });
 
       // As the labels are created in raw html and not svg, we need
@@ -198,7 +198,7 @@
     updateLabels = function() {
       var labelEnter;
 
-      label = label.selectAll(".bubble-label")
+      var label = label.selectAll(".bubble-label")
         .data(data, function(d) {
           return idValue(d);
       });
@@ -439,7 +439,6 @@
 
       // this function is called once data is loaded
       display = function(data) {
-        console.log(data);
         return plotData("#vis", data, plot);
       };
 
@@ -473,21 +472,9 @@
       d3.select("#book-title").html(text.name);
 
       // load the data!
-    //   return d3.csv("/data/" + text.file, display);
-    // });
-      var subjects =
-        [{name: "Feminism", count: 12},
-         {name: "Emigration and Immigration", count: 5},
-         {name: "Latin America", count: 10},
-         {name: "Identity", count: 10},
-         {name: "Gender Studies", count: 8},
-         {name: "Public Opinion", count: 1},
-         {name: "Music in Art", count: 3},
-         {name: "Race in America", count: 2}
-       ];
+      return d3.csv("data/" + text.file, display);
+    });
 
-       display( subjects );
 
-     });
 
 })();
