@@ -40,11 +40,11 @@
 
     <div id="container" class="container">
 
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" autofocus="true" class="btn btn-primary-outline btn-lg">Subjects</button>
-        <button type="button" class="btn btn-primary-outline btn-lg">Materials</button>
-        <button type="button" class="btn btn-primary-outline btn-lg">Techniques</button>
-        <button type="button" class="btn btn-primary-outline btn-lg">Place of Publication</button>
+      <div class="btn-group" id="select" role="group" aria-label="...">
+        <button type="button" value="subjects" class="btn selected btn-primary-outline btn-lg">Subjects</button>
+        <button type="button" value="materials" class="btn btn-primary-outline btn-lg">Materials</button>
+        <button type="button" value="techniques" class="btn btn-primary-outline btn-lg">Techniques</button>
+        <button type="button" value="locations" class="btn btn-primary-outline btn-lg">Place of Publication</button>
       </div>
         <!-- <select id="text-select">
           <option value="sherlock">Sherlock Holmes</option>
@@ -53,42 +53,19 @@
           <option value="gulliver">Gulliver's Travels</option>
         </select> -->
       <header>
-      <h1>Bubble Cloud Prototype for Subjects</h1>
-      <!-- <h2>The most frequently used words in:</h2>
-        <h2 id="book-title"></h2>
-      </header> -->
+      <h2>This is a chart for:</h2>
+        <h2 id="topic"></h2>
+      </header>
       <div id="main" role="main">
         <div id="vis"></div>
         <div id="status"></div>
-        <!-- <div id="controls"> -->
-          <!-- <h3>Jitter</h3>
-          <form id="jitter" oninput="output.value = (jitter_input.value / 200).toFixed(3)" >
-            <input id="jitter_input" type="range" min="0" max="400" value="100" style="width:240px;">
-            <output name="output" for="input">0.5</output>
-          </form> -->
-        <!-- </div> -->
       </div>
     </div> <!--! end of #container -->
 
     <script type="text/javascript" src="lib/javascripts/chart_dummy_data.js"></script>
     <script type="text/javascript" src="lib/javascripts/bubble_chart.js"></script>
+    <script type="text/javascript" src="lib/javascripts/nav.js"></script>
     <!-- <script type="text/javascript" src="lib/javascripts/parser.js"></script> -->
     <!-- <script type="text/javascript" src="lib/javascripts/test.js"></script> -->
   </body>
 </html>
-
-
-
-
-
-  <!-- CSS concatenated and minified via ant build script-->
-  <!-- end CSS-->
-
-
-
-
-
-  <!-- <script defer src="js/plugins.js"></script>
-  <script src="js/libs/d3.min.js"></script>
-  <script type="text/javascript">
-  </script> -->
