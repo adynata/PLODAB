@@ -12,12 +12,25 @@
 
     <title>Linked Artist Books</title>
 
-    <!-- CSS -->
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="lib/css/reset.css">
     <link rel="stylesheet" href="lib/css/chart.css">
+    <link rel="stylesheet" href="lib/css/nav.css">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 
   </head>
   <body>
@@ -26,6 +39,13 @@
     </div>
 
     <div id="container" class="container">
+
+      <div class="btn-group" id="select" role="group" aria-label="...">
+        <button type="button" value="subjects" class="btn selected btn-primary-outline btn-lg">Subjects</button>
+        <button type="button" value="materials" class="btn btn-primary-outline btn-lg">Materials</button>
+        <button type="button" value="techniques" class="btn btn-primary-outline btn-lg">Techniques</button>
+        <button type="button" value="locations" class="btn btn-primary-outline btn-lg">Place of Publication</button>
+      </div>
         <!-- <select id="text-select">
           <option value="sherlock">Sherlock Holmes</option>
           <option value="aesop">Aesop's Fables</option>
@@ -33,42 +53,19 @@
           <option value="gulliver">Gulliver's Travels</option>
         </select> -->
       <header>
-      <h1>Bubble Cloud</h1>
-      <!-- <h2>The most frequently used words in:</h2>
-        <h2 id="book-title"></h2>
-      </header> -->
+      <h2>This is a chart for:</h2>
+        <h2 id="topic"></h2>
+      </header>
       <div id="main" role="main">
         <div id="vis"></div>
         <div id="status"></div>
-        <!-- <div id="controls"> -->
-          <!-- <h3>Jitter</h3>
-          <form id="jitter" oninput="output.value = (jitter_input.value / 200).toFixed(3)" >
-            <input id="jitter_input" type="range" min="0" max="400" value="100" style="width:240px;">
-            <output name="output" for="input">0.5</output>
-          </form> -->
-        <!-- </div> -->
       </div>
     </div> <!--! end of #container -->
 
-    <script type="text/javascript" src="javascripts/chart_dummy_data.js"></script>
-    <script type="text/javascript" src="lib/javascripts/bubble_chart_1.js"></script>
+    <script type="text/javascript" src="lib/javascripts/chart_dummy_data.js"></script>
+    <script type="text/javascript" src="lib/javascripts/bubble_chart.js"></script>
+    <script type="text/javascript" src="lib/javascripts/nav.js"></script>
     <!-- <script type="text/javascript" src="lib/javascripts/parser.js"></script> -->
     <!-- <script type="text/javascript" src="lib/javascripts/test.js"></script> -->
   </body>
 </html>
-
-
-
-
-
-  <!-- CSS concatenated and minified via ant build script-->
-  <!-- end CSS-->
-
-
-
-
-
-  <!-- <script defer src="js/plugins.js"></script>
-  <script src="js/libs/d3.min.js"></script>
-  <script type="text/javascript">
-  </script> -->

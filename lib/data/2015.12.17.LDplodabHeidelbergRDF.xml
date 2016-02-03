@@ -40,8 +40,7 @@
                         <vra:name/>
                     </rdf:Description>
                 </vra:containedIn>
-                <vr
-                    a:name>geographic: Brooklyn, N.Y.; corporate: UCI Libraries. Department of Special Collections and Archives</vra:name>
+                <vra:name>geographic: Brooklyn, N.Y.; corporate: UCI Libraries. Department of Special Collections and Archives</vra:name>
                 <vra:description/>
             </rdf:Description>
         </vra:placeOfPublication>
