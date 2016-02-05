@@ -69,21 +69,39 @@ header {
   fill: #DCE9BE;
 }
 
+.red {
+  fill: rgba(230, 147, 117, 0.75);
+}
+
+.purple {
+  fill: rgba(154, 109, 170, 0.75);
+}
+
+.yellow {
+  fill: rgba(227, 232, 122, 0.75);
+}
+
+/*.blue {
+  fill: rgba(47, 109, 154, 0.75);
+}*/
+
 .bubble-hover {
   /* fill: #b8c7d9; */
-  fill: #E8E9E7;
+  /*fill: #E8E9E7;*/
+  opacity: 0.5;
 }
 
 .bubble-selected {
   /* fill: #a8c8ee;  */
-  fill: #CEE98F;
+  /*fill: #CEE98F;*/
+  opacity: 1;
   /* stroke: #6081a3; */
-  stroke: #A6BA92;
-  stroke-width: 1.5px;
+  stroke: lightgrey;
+  stroke-width: 4.5px;
 }
 
 .active {
-  color: #A6BA92
+  color: darkgrey;
 }
 
 a.bubble-label {
