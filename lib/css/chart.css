@@ -119,6 +119,7 @@ a.bubble-label {
 .bubble-label .bubble-label-value {
   font: 11px sans-serif;
   white-space: nowrap;
+  margin-top: 5px;
 }
 
 footer p {
