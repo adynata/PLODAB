@@ -65,8 +65,8 @@ header {
 }
 
 .bubble-node {
-   /*fill: #d1e0f3;*/
-  fill: #DCE9BE;
+  /*fill: #DCE9BE;*/
+  fill: rgba(230, 147, 117, 0.75);
 }
 
 .red {
@@ -81,9 +81,9 @@ header {
   fill: rgba(227, 232, 122, 0.75);
 }
 
-/*.blue {
+.blue {
   fill: rgba(47, 109, 154, 0.75);
-}*/
+}
 
 .bubble-hover {
   /* fill: #b8c7d9; */
