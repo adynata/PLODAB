@@ -27,6 +27,8 @@ a, a:visited {
   margin-right: auto;
 }
 
+
+
 header {
   padding: 10px;
 }
@@ -69,36 +71,30 @@ header {
   fill: rgba(230, 147, 117, 0.75);
 }
 
-.red {
-  fill: rgba(230, 147, 117, 0.75);
+.btn-group {
+  width: 640px;
 }
 
-.purple {
-  fill: rgba(154, 109, 170, 0.75);
-}
-
-.yellow {
-  fill: rgba(227, 232, 122, 0.75);
-}
-
-.blue {
-  fill: rgba(47, 109, 154, 0.75);
+.btn-group button {
+  width: 150px;
+  height: 45px;
+  font-size: 1.3em;
 }
 
 .bubble-hover {
   /* fill: #b8c7d9; */
   /*fill: #E8E9E7;*/
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .bubble-selected {
   /* fill: #a8c8ee;  */
-  /*fill: #CEE98F;*/
-  opacity: 1;
   /* stroke: #6081a3; */
-  stroke: lightgrey;
-  stroke-width: 4.5px;
+  stroke: rgb(92, 92, 92);
+  stroke-width: 2px;
+  opacity: 1;
 }
+
 
 .active {
   color: darkgrey;
