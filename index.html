@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="root" lang="en">
+<html  lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -18,82 +18,40 @@
     <link rel="stylesheet" href="lib/css/nav.css">
     <link rel="stylesheet" href="lib/css/timeline.css">
     <link rel="stylesheet" href="lib/css/tree.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+
 
   </head>
   <body>
-    <div id="container" class="container">
+    <div ng-app="plodab" id="container" class="container">
+      <div ng-controller="chartctrl" id="main" role="main">
 
-      <div class="btn-group" id="select" role="group" aria-label="...">
-        <button type="button" value="subjects" class="btn selected btn-primary-outline btn-lg">Subjects</button>
-        <button type="button" value="materials" class="btn btn-primary-outline btn-lg">Materials</button>
-        <button type="button" value="techniques" class="btn btn-primary-outline btn-lg">Techniques</button>
-        <button type="button" value="place_of_publication" class="btn btn-primary-outline btn-lg">Place of Publication</button>
-      </div>
-      <div id="main" role="main">
-        <div id="vis"></div>
-        <!-- <div id="status"></div> -->
-        <div id="timeline"></div>
-        <div id="tree"></div>
-      </div>
-      <!-- <div ng-controller="index">{{message}}</div>
+        <button  ng-click="updateSubjects($event)" class="btn btn-primary-outline btn-lg" ng-repeat="b in topicButtons" value={{b.name}}>{{b.display}}</button>
+        <bubble-chart data="bubbleChartData"></bubble-chart>
 
-      <div>
-    		Favorite word: <input ng-model="favoriteWord" type="text" ng-model="favoriteWord"/>
-    		- {{ favoriteWord }}
-    	</div>
-    	<div>
-    		Favorite color:
-    		<input ng-model="favoriteColor" type="radio" name="fc" value="Red">Red</input>
-    		<input ng-model="favoriteColor" type="radio" name="fc" value="Green">Green</input>
-    		<input ng-model="favoriteColor" type="radio" name="fc" value="Yellow">Yellow</input>
-    		<input ng-model="favoriteColor" type="radio" name="fc" value="Blue">Blue</input>
-    		- {{ favoriteColor }}
-    	</div>
-    	<div>
-    		Favorite shape:
-    		<select ng-model="favoriteShape">
-    			<option value="Circle">Circle</option>
-    			<option value="Triangle">Triangle</option>
-    			<option value="Square">Square</option>
-    		</select>
-    		- {{ favoriteShape }}
-        <input type="text" ng-model="value" />
-        <span ng-class="{bold: isBold(), italic: isItalic(), underline: isUnderlined()}">Example Text</span>
-        <table>
-          <thead>
-            <tr>
-              <td>Id</td>
-              <td>Name</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="product in products"
-              ng-class="{oddRow: $odd}">
-              <td>{{product.id}}</td>
-              <td>{{product.name}}</td>
-            </tr>
-          </tbody>
-        </table> -->
-    	<!-- </div> -->
+        <timeline-chart data="timelineData"></timeline-chart>
+        <tree-chart data="treeData"></tree-chart>
+
+      </div>
 
     </div>
 
     </div> <!--! end of #container -->
 
-    <script type="text/javascript" src="lib/javascripts/root.js"></script>
 
-    <script type="text/javascript" src="lib/javascripts/jquery-2.2.0.min.js"></script>
-    <script type="text/javascript" src="lib/javascripts/d3.js"></script>
+    <script type="text/javascript" src="lib/javascripts/resources/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="lib/javascripts/resources/d3.js"></script>
 
-    <script type="text/javascript" src="lib/javascripts/chart_dummy_data.js"></script>
-    <script type="text/javascript" src="lib/javascripts/bubble_chart.js"></script>
-    <script type="text/javascript" src="lib/javascripts/nav.js"></script>
-    <script type="text/javascript" src="lib/javascripts/timeline.js"></script>
-    <script type="text/javascript" src="lib/javascripts/tree.js"></script>
-    <script type="text/javascript" src="lib/javascripts/d3-tip/index.js"></script>
+    <script type="text/javascript" src="lib/data/chart_dummy_data.js"></script>
 
-    <script type="text/javascript" src="lib/javascripts/parser.js"></script>
-    <!-- <script type="text/javascript" src="lib/javascripts/test.js"></script> -->
+    <script type="text/javascript" src="lib/javascripts/charts/bubble_chart.js"></script>
+    <script type="text/javascript" src="lib/javascripts/charts/timeline/timeline.js"></script>
+    <script type="text/javascript" src="lib/javascripts/charts/tree.js"></script>
+    <script type="text/javascript" src="lib/javascripts/charts/timeline/d3-tip/index.js"></script>
+
+    <script type="text/javascript" src="lib/javascripts/angular/linked_books.js"></script>
+
   </body>
 </html>

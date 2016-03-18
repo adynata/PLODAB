@@ -9,6 +9,10 @@ body {
   /*margin: 1em auto;*/
 }
 
+rect {
+  stroke: #6081a3;
+  stroke-width: 1px;
+}
 
 
 body {
@@ -75,7 +79,7 @@ header {
   width: 640px;
 }
 
-.btn-group button {
+button {
   width: 150px;
   height: 45px;
   font-size: 1.3em;
