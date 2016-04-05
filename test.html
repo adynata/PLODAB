@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html  lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Linked Artist Books</title>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="lib/css/reset.css">
+    <link rel="stylesheet" href="lib/css/chart.css">
+    <link rel="stylesheet" href="lib/css/nav.css">
+    <link rel="stylesheet" href="lib/css/timeline.css">
+    <link rel="stylesheet" href="lib/css/tree.css">
+
+    <!-- <script src="node_modules/angular/angular.min.js"></script> -->
+
+  </head>
+  <body>
+    <div ng-app="plodab" id="container" class="container">
+      <div ng-controller="chartctrl" id="main" role="main">
+
+        <div id="demo">test page</div>
+      </div>
+
+    </div>
+
+    </div>
+    <script type="text/javascript" src="lib/javascripts/resources/jquery-2.2.0.min.js"></script>
+
+    <script type="text/javascript" src="node_modules/rdflib/dist/rdflib.js"></script>
+
+    <!-- <script type="text/javascript" src="lib/javascripts/parser.js"></script> -->
+    <script>
+      console.log("Begin test");
+
+      var RDF = $rdf.Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+      var VRA = $rdf.Namespace("http://purl.org/vra/");
+      var RDFS = $rdf.Namespace("http://www.w3.org/2000/01/rdf-schema#");
+      // var FOAF = $rdf.Namespace("http://xmlns.com/foaf/0.1/");
+      // var XSD = $rdf.Namespace("http://www.w3.org/2001/XMLSchema#");
+
+
+      var filePath = "/lib/data/2016.03.16_RDF_COMPLETE_MM_v3.xml";
+      var uri = "";
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+          if (xhttp.readyState == 4 && xhttp.status == 200) {
+          parseData(xhttp);
+          }
+      };
+      xhttp.open("GET", filePath, true);
+      xhttp.send();
+
+      function parseData(xml) {
+        var body = xml.responseText;
+        var mimeType = 'application/rdf+xml';
+        var store = $rdf.graph();
+
+        try {
+            $rdf.parse(body, store, uri, mimeType);
+        } catch (err) {
+            console.log(err);
+        }
+
+        var artifacts = {};
+        var allKeys = [];
+        var subjectsStore = {};
+        var techniques = {};
+        var place_of_publication = {};
+
+        //returns all the Calisphere keys and corresponding images
+        var books = store.statementsMatching(undefined, VRA("imageOf"), undefined);
+        // console.log(books);
+        for (var m=0; m < books.length; m++) {
+            book = books[m];
+            var key = book.object.uri;
+            artifacts[key] = {};
+            artifacts[key].calisphereUri = key;
+            artifacts[key].imageURI = book.subject.uri;
+            artifacts[key].agents = [];
+            artifacts[key].subjects = [];
+            artifacts[key].techniques = [];
+            artifacts[key].materials = [];
+            artifacts[key].place_of_publication = [];
+            allKeys.push(key);
+        }
+
+        allKeys.forEach(fetchSubjects);
+
+        // NOTE: "w_plodab0000015" has no subjects listed
+        function fetchSubjects(key) {
+          var resource = store.statementsMatching($rdf.sym(key), VRA("about") , undefined);
+          for (var i=0; i < resource.length; i++) {
+
+              res = resource[i];
+              console.log("first record with URI for getty vocab and etc.: ", res.object);
+              // second pass with result from initial query returns nested statements with literals:
+
+              var subjectsDetail = store.statementsMatching($rdf.sym(res.object.uri), undefined, undefined);
+              // each subject is a collection that includes a literal and statements from various ontologies describing what that literal represents.
+              // console.log(subjects);
+
+              for (var j = 0; j < subjectsDetail.length; j++){
+                console.log("filter for resource field ", subjectsDetail[j]);
+              }
+          }
+        }
+      }
+    </script>
+
+
+  </body>
+</html>
