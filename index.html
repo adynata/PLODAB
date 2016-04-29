@@ -10,6 +10,8 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
+    <meta http-equiv="refresh" content="1; url=http://uci-libraries.github.io/PLODAB/">
+
     <title>Linked Artist Books</title>
 
     <!-- Local CSS -->
@@ -25,20 +27,24 @@
 
   </head>
   <body>
-    <div ng-app="plodab" id="container" class="container">
+    <!-- <div ng-app="plodab" id="container" class="container">
       <div ng-controller="chartctrl" id="main" role="main">
-
-        <button  ng-click="updateSubjects($event)" class="btn btn-primary-outline btn-lg" ng-repeat="b in topicButtons" value={{b.name}}>{{b.display}}</button>
-        <bubble-chart data="bubbleChartData"></bubble-chart>
-
-        <timeline-chart data="timelineData"></timeline-chart>
-        <tree-chart data="treeData"></tree-chart>
+        <plodab-tool>
+          <tree-chart-container>
+            <tree-chart data="treeData"></tree-chart>
+          </tree-chart-container>
+          <bubble-chart-container>
+            <button  ng-click="updateSubjects($event)" class="btn btn-primary-outline btn-lg" ng-repeat="b in topicButtons" value={{b.name}}>{{b.display}}</button>
+            <bubble-chart data="bubbleChartData"></bubble-chart>
+            <timeline-chart data="timelineData"></timeline-chart>
+          </bubble-chart-container>
+        </plodab-tool>
 
       </div>
 
     </div>
 
-    </div> <!--! end of #container -->
+    </div> <!--! end of #container --> -->
 
     <script src="//code.angularjs.org/1.1.1/angular.js"></script>
     <script type="text/javascript" src="lib/data/chart_dummy_data.js"></script>
